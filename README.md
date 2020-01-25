@@ -65,15 +65,15 @@ The lexer exspects a dictionary containing:
         "mlCommentEnd": "*/",
     }
 ```
-    Note:
-        - symbols must be seperated by spaces
-        - punctuation and stringSymbols may only consist of one character eg. '"' or ";"
-        - all comments (slComment, mlCommentStart, mlCommentEnd) may contain only one symbol
-            (Having more than one symbol representing a comment wouldn't make that much sense, wouldn't it?)
-            Usually a programming language has 3 comment tokens:
-            - A symbol for single line comments eg. //  (slComment)
-            - A symbol for multi line comment start eg. /*  (mlCommentStart)
-            - A symbol for multi line comment end eg */  (mlCommentEnd)
+Note:
+* symbols must be seperated by spaces
+* punctuation and stringSymbols may only consist of one character eg. '"' or ";"
+* all comments (slComment, mlCommentStart, mlCommentEnd) may contain only one symbol
+  (Having more than one symbol representing a comment wouldn't make that much sense, wouldn't it?)
+  Usually a programming language has 3 comment tokens:
+  * A symbol for single line comments (slComment): __//__
+  * A symbol for multi line comment start (mlCommentStart): __/*__
+  * A symbol for multi line comment end (mlCommentEnd): __*/__
             
 See: run_me.py to see how to run the lexer.
 
