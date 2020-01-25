@@ -53,7 +53,7 @@ See: run_me.py to see how to run the lexer.
 
 ## Example
 By running the lexer on the example.lang
-```
+```javascript
 // This is a comment
 
 /*
