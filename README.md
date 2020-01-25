@@ -33,7 +33,7 @@ Note:
 * The example column is just an example. The output depends on the given rules (*symbols-dictionary* see: **How to**) and the content that is being lexed (the given text).
 
 ## How to:
-The Lexer expects a Stream object containing the data to tokenize. (See: stream.py)
+The Lexer expects a Stream object containing the data to tokenize. (See: **stream.py**)
 
 ```python
     # Open and read a file:
@@ -67,19 +67,21 @@ The lexer expects a dictionary containing:
 ```
 Note:
 * symbols must be seperated by spaces
-* punctuation and stringSymbols may only consist of one character eg. '"' or ";"
-* all comments (slComment, mlCommentStart, mlCommentEnd) may contain only one symbol
+* *punctuation* and *stringSymbols* may only consist of one character eg. **"** or **;**
+* all comments (*slComment*, *mlCommentStart*, *mlCommentEnd*) may contain only **one** symbol
+  
   (Having more than one symbol representing a comment wouldn't make that much sense, wouldn't it?)
+  
   Usually a programming language has 3 comment tokens:
   * A symbol for single line comments (slComment): __//__
   * A symbol for multi line comment start (mlCommentStart): __/*__
   * A symbol for multi line comment end (mlCommentEnd): __*/__
             
-See: run_me.py to see how to run the lexer.
+See: **run_me.py** to see how to run the lexer.
 
 
 ## Example
-By running the lexer on the example.lang
+By running the lexer on the **example.lang**
 ```javascript
 // This is a comment
 
