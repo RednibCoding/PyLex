@@ -49,3 +49,107 @@ The lexer exspects a dictionary containing:
             - A symbol for multi line comment end eg */  (mlCommentEnd)
             
 See: run_me.py to see how to run the lexer.
+
+
+## Example
+By running the lexer on the example.lang
+```
+// This is a comment
+
+/*
+    This is a
+    multi line comment
+*/
+
+let myStr = "This is a 'string'"
+let myStr2 = 'This is also a "string"'
+
+def a() { // This is also a comment
+    let a = 5;
+    let b = 6;
+    let isNice = true;
+    if a >= b && isNice {
+        print "This lexer is nice";
+    } else {
+        print "Uhm.. didn't expect that...";
+    }
+}
+
+let a = 10.3; // This is a float
+let b = a + 5; // This is an int
+```
+
+with the following symbols-dictionary:
+```python
+symbols = {
+        "keywords": "if then else let def true false print",
+        "operators": "+ - * / % = & | < > >= && || <= !",
+        "punctuation": ", ; ( ) { } [ ]",
+        "stringSymbols": "\" '",
+        "slComment": "//",
+        "mlCommentStart": "/*",
+        "mlCommentEnd": "*/",
+    }
+```
+
+the output is:
+```
+{'type': 'kw', 'value': 'let'}
+{'type': 'ident', 'value': 'myStr'}
+{'type': 'op', 'value': '='}
+{'type': 'str', 'value': "This is a 'string'"}
+{'type': 'kw', 'value': 'let'}
+{'type': 'ident', 'value': 'myStr2'}
+{'type': 'op', 'value': '='}
+{'type': 'str', 'value': 'This is also a "string"'}
+{'type': 'kw', 'value': 'def'}
+{'type': 'ident', 'value': 'a'}
+{'type': 'punc', 'value': '('}
+{'type': 'punc', 'value': ')'}
+{'type': 'punc', 'value': '{'}
+{'type': 'kw', 'value': 'let'}
+{'type': 'ident', 'value': 'a'}
+{'type': 'op', 'value': '='}
+{'type': 'int', 'value': 5}
+{'type': 'punc', 'value': ';'}
+{'type': 'kw', 'value': 'let'}
+{'type': 'ident', 'value': 'b'}
+{'type': 'op', 'value': '='}
+{'type': 'int', 'value': 6}
+{'type': 'punc', 'value': ';'}
+{'type': 'kw', 'value': 'let'}
+{'type': 'ident', 'value': 'isNice'}
+{'type': 'op', 'value': '='}
+{'type': 'kw', 'value': 'true'}
+{'type': 'punc', 'value': ';'}
+{'type': 'kw', 'value': 'if'}
+{'type': 'ident', 'value': 'a'}
+{'type': 'op', 'value': '>='}
+{'type': 'ident', 'value': 'b'}
+{'type': 'op', 'value': '&&'}
+{'type': 'ident', 'value': 'isNice'}
+{'type': 'punc', 'value': '{'}
+{'type': 'kw', 'value': 'print'}
+{'type': 'str', 'value': 'This lexer is nice'}
+{'type': 'punc', 'value': ';'}
+{'type': 'punc', 'value': '}'}
+{'type': 'kw', 'value': 'else'}
+{'type': 'punc', 'value': '{'}
+{'type': 'kw', 'value': 'print'}
+{'type': 'str', 'value': "Uhm.. didn't expect that..."}
+{'type': 'punc', 'value': ';'}
+{'type': 'punc', 'value': '}'}
+{'type': 'punc', 'value': '}'}
+{'type': 'kw', 'value': 'let'}
+{'type': 'ident', 'value': 'a'}
+{'type': 'op', 'value': '='}
+{'type': 'float', 'value': 10.3}
+{'type': 'punc', 'value': ';'}
+{'type': 'kw', 'value': 'let'}
+{'type': 'ident', 'value': 'b'}
+{'type': 'op', 'value': '='}
+{'type': 'ident', 'value': 'a'}
+{'type': 'op', 'value': '+'}
+{'type': 'int', 'value': 5}
+{'type': 'punc', 'value': ';'}
+```
