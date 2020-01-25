@@ -76,7 +76,9 @@ Note:
   * A symbol for single line comments (slComment): __//__
   * A symbol for multi line comment start (mlCommentStart): __/*__
   * A symbol for multi line comment end (mlCommentEnd): __*/__
-  
+
+
+
 After a Stream object has been created, the lexer itself has to be created with the stream object and the symbols-dictionary passed as arguments:
   
 ```python
@@ -86,6 +88,10 @@ lexer = Lexer(stream, symbols)
   
   The whole python script:
 ```python
+# Importing the neccesary modules
+from stream import Stream
+from lexer import Lexer
+
 # Open and read a file:
 data = ""
 with open(filename, "r") as file:
