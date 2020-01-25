@@ -3,7 +3,7 @@ A minimal and easy to use lexer
 
 ## What is pylex
 Pylex is a minimal lexer to tokanize a given text by given rules.
-Rules are pretty simple: just define a symbols dictionary and pass it to the lexer. See the how to below.
+Defining rules is pretty simple: just define a symbols dictionary and pass it to the lexer. See the How to below.
 
 ## How to:
 The Lexer expects a Stream object containing the data to tokenize. (See: stream.py)
