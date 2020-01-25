@@ -30,7 +30,7 @@ Pylex differentiates between the following tokens:
 
 Note:
 * Comments are ignored.
-* The example column is just an example. The output depends on what you have defined in the symbols-dictionary (see: **How to**) and the content that is being lexed.
+* The example column is just an example. The output depends on the given rules (*symbols-dictionary* see: **How to**) and the content that is being lexed (the given text).
 
 ## How to:
 The Lexer expects a Stream object containing the data to tokenize. (See: stream.py)
