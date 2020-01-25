@@ -94,7 +94,7 @@ from lexer import Lexer
 
 # Open and read a file:
 data = ""
-with open(filename, "r") as file:
+with open("example.lang", "r") as file:
     data = file.read()
 
 # Create a Stream object and pass the read data
