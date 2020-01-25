@@ -5,6 +5,33 @@ A minimal and easy to use lexer
 Pylex is a minimal lexer to tokanize a given text by given rules.
 Defining rules is pretty simple: just define a symbols dictionary and pass it to the lexer. See the **How to** below.
 
+## The output
+On each *readNext()* call which is a method of *Lexer*, the lexer returns the next found token as a dictionary or *None*, if there are no further tokens or the end of stream has been reached:
+```python
+token = lexer.readNext()
+print(token)
+```
+Possible output:
+```
+{'type': 'str', 'value': "This is a 'string'"}
+```
+
+Pylex differentiates between the following tokens:
+
+| Type          | Token         | Example  |
+| ------------- | ------------- | -------- |
+| identifier    | ident         | myVar    |
+| keyword       | kw            | function |
+| punctuation   | punc          | ; , { (  |
+| operator      | op            | + - / &  |
+| string        | str           |"A string"|
+| integer       | int           |  34      |
+| float         | float         |  21.438  |
+
+Note:
+* Comments are ignored.
+* The example column is just an example. The output depends on what you have defined in the symbols-dictionary (see: **How to**) and the content that is being lexed.
+
 ## How to:
 The Lexer expects a Stream object containing the data to tokenize. (See: stream.py)
 
