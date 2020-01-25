@@ -43,7 +43,7 @@ The Lexer expects a Stream object containing the data to tokenize. (See: stream.
     # Create a Stream object and pass the read data
     stream = Stream(data)
 ```
-The lexer exspects a dictionary containing:
+The lexer expects a dictionary containing:
 * keywords
 * punctuation
 * operators
