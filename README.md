@@ -36,12 +36,12 @@ Note:
 The Lexer expects a Stream object containing the data to tokenize. (See: **stream.py**)
 
 ```python
-    # Open and read a file:
-    data = ""
-    with open(filename, "r") as file:
-        data = file.read()
-    # Create a Stream object and pass the read data
-    stream = Stream(data)
+# Open and read a file:
+data = ""
+with open(filename, "r") as file:
+    data = file.read()
+# Create a Stream object and pass the read data
+stream = Stream(data)
 ```
 The lexer expects a dictionary containing:
 * keywords
@@ -54,16 +54,16 @@ The lexer expects a dictionary containing:
 
 
 ```python
-    # Creating a symbols dictionary:
-    symbols = {
-        "keywords": "if then else let def true false print",
-        "operators": "+ - * / % = & | < > >= && || <= !",
-        "punctuation": ", ; ( ) { } [ ]",
-        "stringSymbols": "\" '",
-        "slComment": "//",
-        "mlCommentStart": "/*",
-        "mlCommentEnd": "*/",
-    }
+# Creating a symbols dictionary:
+symbols = {
+    "keywords": "if then else let def true false print",
+    "operators": "+ - * / % = & | < > >= && || <= !",
+    "punctuation": ", ; ( ) { } [ ]",
+    "stringSymbols": "\" '",
+    "slComment": "//",
+    "mlCommentStart": "/*",
+    "mlCommentEnd": "*/",
+}
 ```
 Note:
 * symbols must be seperated by spaces
@@ -76,7 +76,45 @@ Note:
   * A symbol for single line comments (slComment): __//__
   * A symbol for multi line comment start (mlCommentStart): __/*__
   * A symbol for multi line comment end (mlCommentEnd): __*/__
-            
+  
+After a Stream object has been created, the lexer itself has to be created with the stream object and the symbols-dictionary passed as arguments:
+  
+```python
+# Create the lexer
+lexer = Lexer(stream, symbols)
+```
+  
+  The whole python script:
+```python
+# Open and read a file:
+data = ""
+with open(filename, "r") as file:
+    data = file.read()
+
+# Create a Stream object and pass the read data
+stream = Stream(data)
+
+# Creating a symbols dictionary:
+symbols = {
+    "keywords": "if then else let def true false print",
+    "operators": "+ - * / % = & | < > >= && || <= !",
+    "punctuation": ", ; ( ) { } [ ]",
+    "stringSymbols": "\" '",
+    "slComment": "//",
+    "mlCommentStart": "/*",
+    "mlCommentEnd": "*/",
+}
+
+# Create the lexer
+lexer = Lexer(stream, symbols)
+
+# Print all tokens
+while True:
+    token = lexer.readNext()
+    if not token: break
+    print(token)
+```
+
 See: **run_me.py** to see how to run the lexer.
 
 
